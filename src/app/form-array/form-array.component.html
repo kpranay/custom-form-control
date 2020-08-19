@@ -1,0 +1,25 @@
+<div  [formGroup]="testForm">
+    <table class="table" formArrayName="testLines">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Score</th>
+                <th scope="col">Op</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let testLine of testLines.controls; let lineGroupIndex = index;" [formGroup]="testLine">
+                <td>{{testLine.value.id}}</td>
+                <td>{{testLine.value.name}}</td>
+                <td>
+                    <input formControlName="score" [value]="testLine.value.score | testdecimal: '0.2-2'"/>
+                </td>
+                <td>
+                    <button class="btn btn-success">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                  
+</div>
