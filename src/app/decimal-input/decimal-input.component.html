@@ -1,0 +1,4 @@
+<ng-container [formGroup]="decimalForm">
+
+    <input formControlName="valueOnDom" (blur)="inputTouch()" (keydown)="isAValidNegativeDecimalNumber($event)"/>
+</ng-container>

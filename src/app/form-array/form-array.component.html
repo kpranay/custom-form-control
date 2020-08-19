@@ -1,4 +1,5 @@
 <div  [formGroup]="testForm">
+    <button (click)="addData()">Add</button>
     <table class="table" formArrayName="testLines">
         <thead>
             <tr>
@@ -13,13 +14,17 @@
                 <td>{{testLine.value.id}}</td>
                 <td>{{testLine.value.name}}</td>
                 <td>
-                    <input formControlName="score" [value]="testLine.value.score | testdecimal: '0.2-2'"/>
+                    <!-- <input formControlName="score" [value]="testLine.value.score | testdecimal: '0.2-2'"/> -->
+                    <app-decimal-input formControlName="score2"></app-decimal-input>
+                    <span *ngIf="testLine.get('score2').touched && testLine.get('score2').invalid">Score required</span>
                 </td>
                 <td>
-                    <button class="btn btn-success">Update</button>
+                    <button class="btn btn-success" (click)="update(testLine)">Update</button>
                 </td>
             </tr>
         </tbody>
     </table>
-                  
+           
+    <button (click)="print()">Print Values</button>
 </div>
+<app-decimal-input [(ngModel)]="testData"></app-decimal-input>

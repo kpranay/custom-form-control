@@ -8,9 +8,9 @@ import { DecimalPipe } from '@angular/common';
 export class TestdecimalPipe extends DecimalPipe implements PipeTransform {
 
   transform(value: number, digitsInfo: string): string {
-    console.log('inside tbldDecimalPipe :', value, digitsInfo);
+    // console.log('inside tbldDecimalPipe :', value, digitsInfo);
     const test = super.transform(value, digitsInfo);
-    console.log(test);
+    // console.log(test);
     return ''+test;
   }
 }
